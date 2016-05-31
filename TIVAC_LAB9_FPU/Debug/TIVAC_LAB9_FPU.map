@@ -1,0 +1,258 @@
+******************************************************************************
+                  TI ARM Linker PC v5.1.6                      
+******************************************************************************
+>> Linked Mon May 23 17:17:41 2016
+
+OUTPUT FILE NAME:   <TIVAC_LAB9_FPU.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 000008c9
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  00000bc4  0003f43c  R  X
+  SRAM                  20000000   00008000  00000330  00007cd0  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00000bc8   00000bc8    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    000008d0   000008d0    r-x .text
+  00000b3c    00000b3c    00000028   00000028    r-- .const
+  00000b68    00000b68    00000060   00000060    r-- .cinit
+20000000    20000000    00000330   00000000    rw-
+  20000000    20000000    00000190   00000000    rw- .bss
+  20000190    20000190    0000013c   00000000    rw- .data
+  200002cc    200002cc    00000064   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.text      0    0000026c    000008d0     
+                  0000026c    00000170     rtsv7M4_T_le_v4SPD16_eabi.lib : xfsin.obj (.text)
+                  000003dc    00000124                                   : fmodf.obj (.text)
+                  00000500    000000c0                                   : xfdscale.obj (.text)
+                  000005c0    0000009c                                   : memcpy_t2.obj (.text)
+                  0000065c    00000094                                   : auto_init.obj (.text)
+                  000006f0    00000086                                   : fd_cmp_t2.obj (.text:__aeabi_cdcmple)
+                  00000776    0000007a                                   : xfdnorm.obj (.text)
+                  000007f0    00000078     main.obj (.text)
+                  00000868    0000005e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_rle.obj (.text)
+                  000008c6    00000002     --HOLE-- [fill = 0]
+                  000008c8    00000048                                   : boot.obj (.text)
+                  00000910    00000044                                   : cpy_tbl.obj (.text)
+                  00000954    00000044                                   : exit.obj (.text)
+                  00000998    00000040                                   : signal.obj (.text)
+                  000009d8    00000038                                   : fs_tod_t2.obj (.text)
+                  00000a10    00000034                                   : feraiseexcept.obj (.text)
+                  00000a44    00000034                                   : xfdtest.obj (.text)
+                  00000a78    00000030                                   : xferaise.obj (.text)
+                  00000aa8    0000002e                                   : raise.obj (.text)
+                  00000ad6    00000002     --HOLE-- [fill = 0]
+                  00000ad8    00000018                                   : args_main.obj (.text)
+                  00000af0    00000014                                   : _lock.obj (.text)
+                  00000b04    00000012                                   : copy_zero_init.obj (.text:decompress:ZI)
+                  00000b16    0000000e                                   : copy_decompress_none.obj (.text:decompress:none)
+                  00000b24    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
+                  00000b30    00000006     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24)
+                  00000b36    00000006                                   : sinf.obj (.text)
+
+.const     0    00000b3c    00000028     
+                  00000b3c    00000028     rtsv7M4_T_le_v4SPD16_eabi.lib : xfsin.obj (.const)
+
+.cinit     0    00000b68    00000060     
+                  00000b68    00000038     (.cinit..data.load) [load image, compression = rle]
+                  00000ba0    0000000c     (__TI_handler_table)
+                  00000bac    00000004     --HOLE-- [fill = 0]
+                  00000bb0    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00000bb8    00000010     (__TI_cinit_table)
+
+.bss       0    20000000    00000190     UNINITIALIZED
+                  20000000    00000190     main.obj (.bss:gSeriesData)
+
+.data      0    20000190    0000013c     UNINITIALIZED
+                  20000190    000000b0     rtsv7M4_T_le_v4SPD16_eabi.lib : signal.obj (.data:sigtable)
+                  20000240    00000068                                   : xfvalues.obj (.data)
+                  200002a8    00000008                                   : _lock.obj (.data)
+                  200002b0    00000008                                   : exit.obj (.data)
+                  200002b8    00000008                                   : feraiseexcept.obj (.data)
+                  200002c0    00000004     main.obj (.data)
+                  200002c4    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : errno.obj (.data)
+                  200002c8    00000004                                   : stkdepth_vars.obj (.data)
+
+.stack     0    200002cc    00000064     UNINITIALIZED
+                  200002cc    00000064     --HOLE--
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00000bb8 records: 2, size/record: 8, table size: 16
+	.data: load addr=00000b68, load size=00000038 bytes, run addr=20000190, run size=0000013c bytes, compression=rle
+	.bss: load addr=00000bb0, load size=00000008 bytes, run addr=20000000, run size=00000190 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00000ba0 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_rle24
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address    name
+--------   ----
+00000955   C$$EXIT
+00000b25   ResetISR
+UNDEFED    SHT$$INIT_ARRAY$$Base
+UNDEFED    SHT$$INIT_ARRAY$$Limit
+200002c4   _Errno
+20000240   _FDenorm
+00000777   _FDnorm
+00000501   _FDscale
+00000a45   _FDtest
+20000250   _FEps
+20000260   _FInf
+20000270   _FNan
+20000290   _FRteps
+0000026d   _FSin
+20000280   _FSnan
+200002a0   _FXbig
+200002a4   _FZero
+200002b8   _Fenv
+00000a79   _Feraise
+200002bc   _Tls_setup__Fenv
+20000330   __STACK_END
+00000064   __STACK_SIZE
+200004cc   __STACK_TOP
+00000bb8   __TI_CINIT_Base
+00000bc8   __TI_CINIT_Limit
+00000ba0   __TI_Handler_Table_Base
+00000bac   __TI_Handler_Table_Limit
+00000001   __TI_args_main
+0000065d   __TI_auto_init
+200002b0   __TI_cleanup_ptr
+00000b17   __TI_decompress_none
+00000b31   __TI_decompress_rle24
+200002b4   __TI_dtors_ptr
+00000000   __TI_static_base__
+00000b05   __TI_zero_init
+000006f1   __aeabi_cdcmpeq
+000006f1   __aeabi_cdcmple
+000009d9   __aeabi_f2d
+000005c1   __aeabi_memcpy
+000005c1   __aeabi_memcpy4
+000005c1   __aeabi_memcpy8
+ffffffff   __binit__
+ffffffff   __c_args__
+200002cc   __stack
+00000ad9   _args_main
+000008c9   _c_int00
+200002a8   _lock
+00000aff   _nop
+00000af7   _register_lock
+00000af1   _register_unlock
+200002ac   _unlock
+00000959   abort
+ffffffff   binit
+00000911   copy_in
+00000961   exit
+00000a11   feraiseexcept
+000003dd   fmodf
+20000000   gSeriesData
+00000000   g_pfnVectors
+200002c0   i32DataCount
+000007f1   main
+200002c8   main_func_sp
+000005c1   memcpy
+00000aa9   raise
+00000999   signal
+00000b37   sinf
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address    name
+--------   ----
+00000000   __TI_static_base__
+00000000   g_pfnVectors
+00000001   __TI_args_main
+00000064   __STACK_SIZE
+0000026d   _FSin
+000003dd   fmodf
+00000501   _FDscale
+000005c1   __aeabi_memcpy
+000005c1   __aeabi_memcpy4
+000005c1   __aeabi_memcpy8
+000005c1   memcpy
+0000065d   __TI_auto_init
+000006f1   __aeabi_cdcmpeq
+000006f1   __aeabi_cdcmple
+00000777   _FDnorm
+000007f1   main
+000008c9   _c_int00
+00000911   copy_in
+00000955   C$$EXIT
+00000959   abort
+00000961   exit
+00000999   signal
+000009d9   __aeabi_f2d
+00000a11   feraiseexcept
+00000a45   _FDtest
+00000a79   _Feraise
+00000aa9   raise
+00000ad9   _args_main
+00000af1   _register_unlock
+00000af7   _register_lock
+00000aff   _nop
+00000b05   __TI_zero_init
+00000b17   __TI_decompress_none
+00000b25   ResetISR
+00000b31   __TI_decompress_rle24
+00000b37   sinf
+00000ba0   __TI_Handler_Table_Base
+00000bac   __TI_Handler_Table_Limit
+00000bb8   __TI_CINIT_Base
+00000bc8   __TI_CINIT_Limit
+20000000   gSeriesData
+20000240   _FDenorm
+20000250   _FEps
+20000260   _FInf
+20000270   _FNan
+20000280   _FSnan
+20000290   _FRteps
+200002a0   _FXbig
+200002a4   _FZero
+200002a8   _lock
+200002ac   _unlock
+200002b0   __TI_cleanup_ptr
+200002b4   __TI_dtors_ptr
+200002b8   _Fenv
+200002bc   _Tls_setup__Fenv
+200002c0   i32DataCount
+200002c4   _Errno
+200002c8   main_func_sp
+200002cc   __stack
+20000330   __STACK_END
+200004cc   __STACK_TOP
+ffffffff   __binit__
+ffffffff   __c_args__
+ffffffff   binit
+UNDEFED    SHT$$INIT_ARRAY$$Base
+UNDEFED    SHT$$INIT_ARRAY$$Limit
+
+[66 symbols]

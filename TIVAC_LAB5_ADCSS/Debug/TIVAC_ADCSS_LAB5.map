@@ -1,0 +1,243 @@
+******************************************************************************
+                  TI ARM Linker PC v5.2.5                      
+******************************************************************************
+>> Linked Tue May 17 18:27:58 2016
+
+OUTPUT FILE NAME:   <TIVAC_ADCSS_LAB5.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00000795
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  00000a32  0003f5ce  R  X
+  SRAM                  20000000   00008000  0000021c  00007de4  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00000a3c   00000a3c    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  00000270    00000270    000007a2   000007a2    r-x .text
+  00000a18    00000a18    00000024   00000024    r-- .cinit
+20000000    20000000    0000021c   00000000    rw-
+  20000000    20000000    00000200   00000000    rw- .stack
+  20000200    20000200    0000001c   00000000    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c1231h6pm_startup_ccs.obj (.intvecs)
+
+.text      0    00000270    000007a2     
+                  00000270    00000130     driverlib.lib : gpio.obj (.text:GPIOPadConfigSet)
+                  000003a0    000000f0                   : sysctl.obj (.text:SysCtlClockSet)
+                  00000490    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.obj (.text)
+                  0000052c    00000004                                   : pre_init.obj (.text)
+                  00000530    00000098     main.obj (.text)
+                  000005c8    0000007a     driverlib.lib : adc.obj (.text:ADCSequenceStepConfigure)
+                  00000642    0000007a     rtsv7M4_T_le_v4SPD16_eabi.lib : memset_t2.obj (.text)
+                  000006bc    0000006c                                   : autoinit.obj (.text)
+                  00000728    0000006a                                   : copy_decompress_rle.obj (.text)
+                  00000792    00000002     --HOLE-- [fill = 0]
+                  00000794    00000050                                   : boot.obj (.text)
+                  000007e4    0000004c                                   : cpy_tbl.obj (.text)
+                  00000830    00000044                                   : exit.obj (.text)
+                  00000874    0000003e     driverlib.lib : adc.obj (.text:ADCSequenceConfigure)
+                  000008b2    00000002     --HOLE-- [fill = 0]
+                  000008b4    00000034                   : sysctl.obj (.text:SysCtlPeripheralEnable)
+                  000008e8    0000002e                   : adc.obj (.text:ADCIntStatus)
+                  00000916    0000002a                   : gpio.obj (.text:GPIODirModeSet)
+                  00000940    0000001e                   : adc.obj (.text:ADCSequenceDataGet)
+                  0000095e    00000002     --HOLE-- [fill = 0]
+                  00000960    0000001a     tm4c1231h6pm_startup_ccs.obj (.text)
+                  0000097a    00000018     driverlib.lib : adc.obj (.text:ADCProcessorTrigger)
+                  00000992    00000002     --HOLE-- [fill = 0]
+                  00000994    00000018     rtsv7M4_T_le_v4SPD16_eabi.lib : args_main.obj (.text)
+                  000009ac    00000014                                   : _lock.obj (.text)
+                  000009c0    00000012     driverlib.lib : gpio.obj (.text:GPIOPinTypeADC)
+                  000009d2    0000000e                   : adc.obj (.text:ADCSequenceDisable)
+                  000009e0    0000000e                   : adc.obj (.text:ADCSequenceEnable)
+                  000009ee    0000000e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_none.obj (.text:decompress:none)
+                  000009fc    0000000a     driverlib.lib : adc.obj (.text:ADCIntClear)
+                  00000a06    00000006                   : sysctl.obj (.text:SysCtlDelay)
+                  00000a0c    00000006     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24)
+
+.cinit     0    00000a18    00000024     
+                  00000a18    00000012     (.cinit..data.load) [load image, compression = rle]
+                  00000a2a    00000002     --HOLE-- [fill = 0]
+                  00000a2c    00000008     (__TI_handler_table)
+                  00000a34    00000008     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.stack     0    20000000    00000200     UNINITIALIZED
+                  20000000    00000200     --HOLE--
+
+.data      0    20000200    0000001c     UNINITIALIZED
+                  20000200    00000008     main.obj (.data)
+                  20000208    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.data)
+                  20000210    00000008                                   : exit.obj (.data)
+                  20000218    00000004                                   : stkdepth_vars.obj (.data)
+
+.TI.persistent 
+*          0    20000200    00000000     UNINITIALIZED
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00000a34 records: 1, size/record: 8, table size: 8
+	.data: load addr=00000a18, load size=00000012 bytes, run addr=20000200, run size=0000001c bytes, compression=rle
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00000a2c records: 2, size/record: 4, table size: 8
+	index: 0, handler: __TI_decompress_rle24
+	index: 1, handler: __TI_decompress_none
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                    
+-------   ----                    
+000009fd  ADCIntClear             
+000008e9  ADCIntStatus            
+0000097b  ADCProcessorTrigger     
+00000875  ADCSequenceConfigure    
+00000941  ADCSequenceDataGet      
+000009d3  ADCSequenceDisable      
+000009e1  ADCSequenceEnable       
+000005c9  ADCSequenceStepConfigure
+00000831  C$$EXIT                 
+00000917  GPIODirModeSet          
+00000271  GPIOPadConfigSet        
+000009c1  GPIOPinTypeADC          
+00000961  ResetISR                
+UNDEFED   SHT$$INIT_ARRAY$$Base   
+UNDEFED   SHT$$INIT_ARRAY$$Limit  
+000003a1  SysCtlClockSet          
+00000a07  SysCtlDelay             
+000008b5  SysCtlPeripheralEnable  
+20000200  __STACK_END             
+00000200  __STACK_SIZE            
+20000200  __STACK_TOP             
+00000a34  __TI_CINIT_Base         
+00000a3c  __TI_CINIT_Limit        
+00000a2c  __TI_Handler_Table_Base 
+00000a34  __TI_Handler_Table_Limit
+000006bd  __TI_auto_init          
+20000210  __TI_cleanup_ptr        
+000009ef  __TI_decompress_none    
+00000a0d  __TI_decompress_rle24   
+20000214  __TI_dtors_ptr          
+00000000  __TI_static_base__      
+00000643  __aeabi_memclr          
+00000643  __aeabi_memclr4         
+00000643  __aeabi_memclr8         
+00000491  __aeabi_memcpy          
+00000491  __aeabi_memcpy4         
+00000491  __aeabi_memcpy8         
+00000645  __aeabi_memset          
+00000645  __aeabi_memset4         
+00000645  __aeabi_memset8         
+ffffffff  __binit__               
+ffffffff  __c_args__              
+20000000  __stack                 
+00000995  _args_main              
+00000795  _c_int00                
+20000208  _lock                   
+000009bb  _nop                    
+000009b3  _register_lock          
+000009ad  _register_unlock        
+0000052d  _system_pre_init        
+2000020c  _unlock                 
+00000835  abort                   
+ffffffff  binit                   
+000007e5  copy_in                 
+0000083d  exit                    
+00000000  g_pfnVectors            
+00000531  main                    
+20000218  main_func_sp            
+00000491  memcpy                  
+0000064b  memset                  
+20000200  read                    
+20000204  result                  
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                    
+-------   ----                    
+00000000  __TI_static_base__      
+00000000  g_pfnVectors            
+00000200  __STACK_SIZE            
+00000271  GPIOPadConfigSet        
+000003a1  SysCtlClockSet          
+00000491  __aeabi_memcpy          
+00000491  __aeabi_memcpy4         
+00000491  __aeabi_memcpy8         
+00000491  memcpy                  
+0000052d  _system_pre_init        
+00000531  main                    
+000005c9  ADCSequenceStepConfigure
+00000643  __aeabi_memclr          
+00000643  __aeabi_memclr4         
+00000643  __aeabi_memclr8         
+00000645  __aeabi_memset          
+00000645  __aeabi_memset4         
+00000645  __aeabi_memset8         
+0000064b  memset                  
+000006bd  __TI_auto_init          
+00000795  _c_int00                
+000007e5  copy_in                 
+00000831  C$$EXIT                 
+00000835  abort                   
+0000083d  exit                    
+00000875  ADCSequenceConfigure    
+000008b5  SysCtlPeripheralEnable  
+000008e9  ADCIntStatus            
+00000917  GPIODirModeSet          
+00000941  ADCSequenceDataGet      
+00000961  ResetISR                
+0000097b  ADCProcessorTrigger     
+00000995  _args_main              
+000009ad  _register_unlock        
+000009b3  _register_lock          
+000009bb  _nop                    
+000009c1  GPIOPinTypeADC          
+000009d3  ADCSequenceDisable      
+000009e1  ADCSequenceEnable       
+000009ef  __TI_decompress_none    
+000009fd  ADCIntClear             
+00000a07  SysCtlDelay             
+00000a0d  __TI_decompress_rle24   
+00000a2c  __TI_Handler_Table_Base 
+00000a34  __TI_CINIT_Base         
+00000a34  __TI_Handler_Table_Limit
+00000a3c  __TI_CINIT_Limit        
+20000000  __stack                 
+20000200  __STACK_END             
+20000200  __STACK_TOP             
+20000200  read                    
+20000204  result                  
+20000208  _lock                   
+2000020c  _unlock                 
+20000210  __TI_cleanup_ptr        
+20000214  __TI_dtors_ptr          
+20000218  main_func_sp            
+ffffffff  __binit__               
+ffffffff  __c_args__              
+ffffffff  binit                   
+UNDEFED   SHT$$INIT_ARRAY$$Base   
+UNDEFED   SHT$$INIT_ARRAY$$Limit  
+
+[62 symbols]
